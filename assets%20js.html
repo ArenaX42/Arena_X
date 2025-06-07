@@ -1,0 +1,29 @@
+function joinTournament() {
+    alert("Thank you! Tournament registration link will be sent on WhatsApp.");
+    window.open('https://wa.me/880XXXXXXXXXX', '_blank');
+}
+
+function topUpNow() {
+    alert("Please contact on WhatsApp to complete your Diamond Top Up.");
+    window.open('https://wa.me/880XXXXXXXXXX', '_blank');
+}
+
+function sendChat() {
+    const input = document.getElementById('chat-input').value.toLowerCase();
+    const responseDiv = document.getElementById('chat-response');
+    let response = '';
+
+    if (input.includes('time')) {
+        response = 'Tournaments are held between 10:00 AM - 12:00 AM.';
+    } else if (input.includes('rules')) {
+        response = 'Follow international Free Fire tournament rules. No hacks, fair play only.';
+    } else if (input.includes('top up') || input.includes('diamond')) {
+        response = 'Please visit the Diamond Top Up section above to purchase diamonds.';
+    } else if (input.includes('join')) {
+        response = 'Please click "Join Tournament" to participate.';
+    } else {
+        response = 'Sorry, I did not understand. Please ask about Tournament or Top Up.';
+    }
+
+    responseDiv.innerHTML = 'AI Bot: ' + response;
+}
