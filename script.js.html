@@ -1,0 +1,36 @@
+function showSection(sectionId) {
+    document.querySelectorAll('main section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+}
+
+// Basic AI Chatbot
+function sendMessage() {
+    const input = document.getElementById('chatInput').value.trim();
+    if (!input) return;
+
+    const chatlog = document.getElementById('chatlog');
+    const userMsg = document.createElement('div');
+    userMsg.textContent = 'You: ' + input;
+    chatlog.appendChild(userMsg);
+
+    let botReply = '';
+
+    if (input.toLowerCase().includes('time') || input.toLowerCase().includes('kokhon')) {
+        botReply = 'Tournament runs daily from 10 AM to 12 PM.';
+    } else if (input.toLowerCase().includes('join') || input.toLowerCase().includes('dhorbo')) {
+        botReply = 'You can join via Bkash, Nagad, Rocket from the Join Now button.';
+    } else if (input.toLowerCase().includes('score') || input.toLowerCase().includes('result')) {
+        botReply = 'Match results will be shown here after the game ends.';
+    } else {
+        botReply = 'Sorry, I am still learning. Please contact WhatsApp for more help.';
+    }
+
+    const botMsg = document.createElement('div');
+    botMsg.textContent = 'Bot: ' + botReply;
+    chatlog.appendChild(botMsg);
+
+    chatlog.scrollTop = chatlog.scrollHeight;
+    document.getElementById('chatInput').value = '';
+}
